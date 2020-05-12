@@ -1,0 +1,25 @@
+[WITH GIT PULL ADD CHANGES]
+git init
+git pull
+git checkout -b master
+git add .
+git merge
+git commit -m "message"
+git push
+
+
+
+[WITHOUT ANY GIT PULL CREATE FRESHLY]
+$ git init
+>> Initialized empty Git repository in /home/muser/Desktop/Untitled Folder/.git/
+$ git remote add SaiAkulaGit https://github.com/saiAkulaGit/repo_Jan_23_2020
+$ git add .
+$ git status
+>> u will see changes that are added here
+$ git commit -m "comments"
+$ git push SaiAkulaGit master 
+	(or)
+
+$ git push -f SaiAkulaGit master
+[This will force to remove all ur old file and reflects only current folders & files]
+
