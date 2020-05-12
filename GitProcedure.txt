@@ -1,6 +1,6 @@
 [WITH GIT PULL ADD CHANGES]
 git init
-git pull
+git clone https://github.com/saiAkulaGit/repo_Jan_23_2020
 git checkout -b master
 git add .
 git merge
