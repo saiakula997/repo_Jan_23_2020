@@ -1,11 +1,24 @@
 [WITH GIT PULL ADD CHANGES]
-git init
-git clone https://github.com/saiAkulaGit/repo_Jan_23_2020
-git checkout -b master
-git add .
-git merge
-git commit -m "message"
-git push
+
+1) git clone https://github.com/saiAkulaGit/repo_Jan_23_2020
+
+2) cd ./repo_Jan_23_2020
+
+>> check the brach in which you are
+3) git branch
+>> * master
+>> if not use [ git checkout -b master ]
+
+>> Make changes you want.
+4) git status    ---> make sure all the changes are reflected.
+>> if the changes are present in a subdirectory then they might not reflect in git status then use:
+>> [ git rm --cached directory ]
+>> [ git add directory ]
+ 
+5) git add .
+6) git merge
+7) git commit -m "message"
+8) git push
 
 
 
