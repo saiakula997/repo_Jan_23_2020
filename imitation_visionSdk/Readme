@@ -1,0 +1,59 @@
+In this project we are trying to imitate the vision sdk frame work, where there will be multiple process running each will communicate with each other using Real Time signals.
+
+
+Main process - will create shared memory to make data avalable for all the process.
+	
+	// Creating shared memory for meta buffer
+	key = ftok("./for_ftok.txt",66);
+	if(-1==key)
+	{
+		perror("ftok");
+		TRACE();
+		exit(0);
+	}
+	int shmid2 = shmget(key,(1024*1024*100),0666|IPC_CREAT);
+	if(shmid2==-1)
+	{
+		perror("shmget");
+		TRACE();
+		exit(0);
+	}
+	shm_meta_buffer = (struct meta_buffer *)shmat(shmid2,(void*)0,0);
+	if((void *)-1 == shm_meta_buffer)
+	{
+		perror("shmat");
+		TRACE();
+		exit(0);
+	}
+
+
+Main process - Creates 5 child process along with signal handlers and all of them will be in pause state.
+	     - it will also store all the process PID's in shared memory so that each and every process will come to know next process 			PID to send signals.
+ 
+	for(i=0;i<5;i++)
+	{
+		signal(SIGRTMIN+3,handlers[i]);
+		n=fork();
+		if(n==0)while(1)pause();///child in pause state
+		printf("Created node  %d  with pid %d\n",i,n);
+		*(shmdata+i)=n;
+		nodes[i]=n;
+
+	}  
+
+
+Theory:
+main process creates shared memory , then creates 5 child's and shares the PID of the  next process to each process. then it send a signal to pocess1.
+process 1 will read an image form a file and keeps it in shared memory then sends and signal to process 2 and it continues to read next frame form file.
+process 2 will start processing that frame using the shared memory pointer and after send a signal to process 3.
+This will continue till the last process.
+[Due to this using multi process mechanism time take for each frame will redce from end to end]
+
+eg:
+[0.3] [0.2]  [0.7] [0.4] [0.2]  -> first frame will come after 1.8 sec  
+				-> second frame will come after 2.1 sec (only 0.3 sec difference)
+ 
+	
+
+
+
