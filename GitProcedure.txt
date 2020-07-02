@@ -32,6 +32,7 @@ $ git status
 $ git commit -m "comments"
 $ git push SaiAkulaGit master 
 	(or)
+$ git push origin master   ---> this will ask u username and password
 
 $ git push -f SaiAkulaGit master
 [This will force to remove all ur old file and reflects only current folders & files]
