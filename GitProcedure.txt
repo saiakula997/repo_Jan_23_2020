@@ -40,3 +40,22 @@ $ git push -f SaiAkulaGit master
 
 [GIT PATCH]
 
+*[Assume that ur already in a updated git branch repo_Jan_23_2020 ]
+
+1) [ Make the changes you want to do in that repo ]
+
+2) git status ---> will give the file names in which changes are made, in red colour.
+
+[If you need you can  $ git diff ---> to see the changes u made (this happens only before git add ) ]
+
+3) git add .
+
+[Again git status ---> will give the file names in which changes are made, in green colour.] 
+
+[ Note : i didn't merge it after git add ]
+
+4) git commit -m "message"
+
+5) git format-patch -1   -> this will generate a patch file with the same name of message. 
+
+
