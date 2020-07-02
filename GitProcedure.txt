@@ -36,3 +36,7 @@ $ git push SaiAkulaGit master
 $ git push -f SaiAkulaGit master
 [This will force to remove all ur old file and reflects only current folders & files]
 
+
+
+[GIT PATCH]
+
