@@ -1,0 +1,19 @@
+[ PROCEDURE TO SHARE A FOLDER BETWEEN VM AND HOST ]
+
+1. Create a folder in host named "host_folder"
+2. Create a folder in vm named "vm_folder"
+3. Now login into vm with GUI toolbar -> Devices -> Inser guest additions CD Image
+4. once it is mounted run sudo /media/<user>/VBox_GAs.x.x/VBoxLinuxAdditions.run
+5. Now toolbar -> Devices -> shared folder -> selcect the requied folder in host and give a "mount_name" to it.
+6. Now run sudo mount -t  vboxsf "mount_name"  "vm_folder"
+
+[ PROCEDURE TO GET SSH BETWEEN VM AND HOST ]
+
+0. In vm sudo apt install openssh-server
+1. In vm settings goto Network settings
+2. Select any Network Adapter "Adapter3"
+3. Attach to NAT
+4. In Advanced options "Port Forwarding"
+5. Add a rule [Protocol : TCP] [ Host port : 3022] [Guest Port : 22] [Leave host IP and Guest IP Blank]
+6. Now we can start vm in (headless mode) and loging via ssh
+7. ssh -p 3022 user_name@1270.0.1  
