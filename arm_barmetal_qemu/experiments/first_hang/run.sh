@@ -28,3 +28,9 @@ qemu-system-arm -M vexpress-a9 -m 32M -no-reboot -nographic -monitor telnet:127.
 # x /4w 0x1000   - to inspect 4 words  at 0x1000  virtual address
 # help           - to print help
 
+# (qemu) xp /4w 0x60010000
+# 0000000060010000: 0xe59f2004 0xe3a01005 0xeafffffe 0xbabeface
+# we can find our code in physical address 0x60010000 because for ths vexpress-a9 device DDR2 RAM starts from 0x60000000 that is how it is memory mapped
+# where the addition offset 0x10000 is 64KB which is qemu boot code for this device, after execting this boot code only qemu will jump to kernel code 
+# begining from 0x0060010000.
+
