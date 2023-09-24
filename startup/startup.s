@@ -16,7 +16,7 @@ Reset_Handler:
     MOV R2, #0xBABA
     BKPT
     NOP
-    CPS #0x10
+    CPS #0x13
 	SVC	0
 	B	.
 
