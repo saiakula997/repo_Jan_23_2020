@@ -18,11 +18,20 @@ Reset_Handler:
     NOP
     CPS #0x13
 	SVC	0
+    CPS #0x10
+    BL my_fun
 	B	.
 
 SVC_Handler:
     MOV R0, #0xABCD
     MOV R1, #0xDEAD
+    BX LR
+
+my_fun:
+    MOV R0, #0xBEEF
+    MSR CPSR_c, #0x13
+    NOP
+    NOP
     BX LR
 
 
