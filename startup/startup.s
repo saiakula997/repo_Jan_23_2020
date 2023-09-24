@@ -29,7 +29,7 @@ SVC_Handler:
 
 my_fun:
     MOV R0, #0xBEEF
-    MSR CPSR_c, #0x13
+    MSR CPSR_c, #0x11
     NOP
     NOP
     BX LR
