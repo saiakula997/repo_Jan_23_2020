@@ -14,7 +14,9 @@ Reset_Handler:
 	BL	entry
     CPS #0x10
     MOV R2, #0xBABA
+    BKPT
     NOP
+    CPS #0x10
 	SVC	0
 	B	.
 
