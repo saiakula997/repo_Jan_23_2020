@@ -1,16 +1,24 @@
-.section INTERRUPT_VECTOR, "x"
-.global _Reset
+.section	INTERRUPT_VECTOR,	"x"
+.global	_Reset
 _Reset:
- B Reset_Handler /* Reset */
- B . /* Undefined */
- B . /* SWI */
- B . /* Prefetch Abort */
- B . /* Data Abort */
- B . /* reserved */
- B . /* IRQ */
- B . /* FIQ */
+	B	Reset_Handler	/* Reset */
+	B	.	            /* Undefined */
+	B	SVC_Handler     /* Supervisor Mode */
+	B	.	            /* Prefetch Abort */
+	B	.	            /* Data Abort */
+	B	.	            /* reserved	*/
+	B	.	            /* IRQ	*/
+	B	.	            /* FIQ	*/
 Reset_Handler:
- LDR sp, =stack_top
- BL entry
- B .
- 
+	LDR	sp,	=stack_top
+	BL	entry
+	SVC	0
+	B	.
+
+SVC_Handler:
+    MOV R0, #0xABCD
+    MOV R1, #0xDEAD
+    BX LR
+
+
+	
