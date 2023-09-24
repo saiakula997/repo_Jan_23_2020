@@ -12,7 +12,7 @@ _Reset:
 Reset_Handler:
 	LDR	sp,	=stack_top
 	BL	entry
-    BKPT
+    CPS #0x10
     MOV R2, #0xBABA
     NOP
 	SVC	0
