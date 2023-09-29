@@ -1,5 +1,6 @@
 .section	INTERRUPT_VECTOR,	"x"
 .global	_Reset
+.global my_fun
 _Reset:
 	B	Reset_Handler	/* Reset */
 	B	.	            /* Undefined */
