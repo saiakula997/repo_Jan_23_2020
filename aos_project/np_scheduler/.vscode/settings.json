@@ -1,0 +1,10 @@
+{
+    "files.associations": {
+        "inttypes.h": "c",
+        "utils.h": "c",
+        "stdarg.h": "c",
+        "types.h": "c",
+        "thread.h": "c",
+        "util.h": "c"
+    }
+}
