@@ -22,11 +22,40 @@ static void _print_uart0(const char *string)
 }
 
 void* memset(void *ptr, uint8_t value, size_t num){
-    _print_uart0("in memset");
     while (num){
         *((char*)ptr + (num--)) = value;
     }
     return NULL;
+}
+
+uint32_t strlen(char *src){
+    uint32_t n=0;
+    while (*(src+n) != '\0' && *(src+n) != '\n'){
+        n++;
+    }
+    return n;
+}
+
+uint32_t strncpy(char *des, char *src, uint32_t n){
+    while (n){
+        *des = *src;
+        des++;
+        src++;
+        n--;
+    }  
+    return n;
+}
+
+uint32_t strncmp(char *des, char *src, uint32_t n){
+    while (n){
+        if (*des != *src){
+            break;
+        }
+        n--;
+        des++;
+        src++;
+    }  
+    return n;
 }
 
 
@@ -57,6 +86,13 @@ void print(const char *format, ...){
                 while (*str) {
                     _putchar(*str);
                     str++;
+                }
+            } else if (*format == 'u') {
+                unsigned int num = va_arg(args,  unsigned int);
+                 while (num > 0) {
+                    int digit = num % 10;
+                    _putchar('0' + digit);
+                    num /= 10;
                 }
             }
         } else {

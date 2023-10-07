@@ -11,8 +11,11 @@
 
 void print(const char *format, ...);
 void* memset(void *ptr, uint8_t value, size_t num);
-void delay(int ticks); // 1Tick -> 20 ms 
+extern void delay(int ticks); // 1Tick -> 20 ms 
+extern void panic(void);
 
-
+uint32_t strlen(char *src);
+uint32_t strncpy(char *des, char *src, uint32_t n);
+uint32_t strncmp(char *des, char *src, uint32_t n);
 
 #endif

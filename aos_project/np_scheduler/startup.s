@@ -1,10 +1,14 @@
 .global _MyApp
 .global delay
+.global panic 
+
 _MyApp:
     LDR sp, =stack_top
     BL entry
     B .
 
+panic:
+    BAL .
 
 delay:
     MOV R1, R0
