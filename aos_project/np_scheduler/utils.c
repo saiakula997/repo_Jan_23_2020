@@ -59,9 +59,21 @@ uint32_t strncmp(char *des, char *src, uint32_t n){
 }
 
 
+
 void _putchar(char ch){
     _print_hadler.print_buf[_print_hadler.count++] = ch;   
 }
+
+
+void _print_uint32(uint32_t num){
+    if(num<=0){
+        return;
+    }
+    uint32_t digit = num%10;
+    _print_uint32(num/10);
+    _putchar('0'+digit);
+}
+
 
 void print(const char *format, ...){
     va_list args;
@@ -76,11 +88,12 @@ void print(const char *format, ...){
                     _putchar('-');
                     num = -num;
                 }
-                while (num > 0) {
-                    int digit = num % 10;
-                    _putchar('0' + digit);
-                    num /= 10;
-                }
+                _print_uint32((uint32_t)num);
+                // while (num > 0) {
+                //     int digit = num % 10;
+                //     _putchar('0' + digit);
+                //     num /= 10;
+                // }
             } else if (*format == 's') {
                 char *str = va_arg(args, char *);
                 while (*str) {
@@ -89,11 +102,12 @@ void print(const char *format, ...){
                 }
             } else if (*format == 'u') {
                 unsigned int num = va_arg(args,  unsigned int);
-                 while (num > 0) {
-                    int digit = num % 10;
-                    _putchar('0' + digit);
-                    num /= 10;
-                }
+                _print_uint32((uint32_t)num);
+                //  while (num > 0) {
+                //     int digit = num % 10;
+                //     _putchar('0' + digit);
+                //     num /= 10;
+                // }
             }
         } else {
             _putchar(*format);

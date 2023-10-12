@@ -1,13 +1,16 @@
 .global _MyApp
 .global delay
 .global panic 
+.global heap_start
 
 _MyApp:
     LDR sp, =stack_top
+    LDR R0, =heap_start
     BL entry
     B .
 
 panic:
+    SVC 0
     BAL .
 
 delay:

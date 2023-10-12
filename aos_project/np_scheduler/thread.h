@@ -13,7 +13,7 @@ typedef enum thread_status {
 } thread_status_t;
 
 typedef struct thread_handler{
-    uint32_t junk; // getting corrtpted ? 
+    uint32_t junk; //Bug Report: getting corrtpted ? 
     uint32_t id;
     char name[16];
     uint8_t priority;

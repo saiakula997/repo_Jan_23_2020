@@ -5,6 +5,18 @@
         "stdarg.h": "c",
         "types.h": "c",
         "thread.h": "c",
-        "util.h": "c"
+        "util.h": "c",
+        "memory.h": "c",
+        "__locale": "c",
+        "atomic": "c",
+        "cstdlib": "c",
+        "locale": "c",
+        "new": "c",
+        "ostream": "c",
+        "typeinfo": "c",
+        "algorithm": "c",
+        "cmath": "c",
+        "complex": "c",
+        "vector": "c"
     }
 }
