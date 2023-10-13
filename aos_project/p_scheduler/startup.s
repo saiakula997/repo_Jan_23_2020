@@ -9,6 +9,7 @@
     B   NMI_Handler
     B   SVC_Handler
     B   HardFault_Handler
+    B   panic
 
 Reset_Handler:
     MOV R0, #0x01
@@ -16,9 +17,11 @@ Reset_Handler:
     B .
     
 NMI_Handler:
+    B panic
     B .
 
 HardFault_Handler:
+    B panic
     B .
 
 SVC_Handler:
