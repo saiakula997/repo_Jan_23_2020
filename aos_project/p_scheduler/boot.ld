@@ -1,4 +1,4 @@
-#ENTRY(_MyApp) 
+ENTRY(_MyApp) 
 SECTIONS
 {
  . = 0x00;

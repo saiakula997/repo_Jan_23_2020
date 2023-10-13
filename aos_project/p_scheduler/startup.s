@@ -5,6 +5,7 @@
 
 .text
 .align 2
+_MyApp:
     B   Reset_Handler
     B   NMI_Handler
     B   SVC_Handler
