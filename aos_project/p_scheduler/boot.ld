@@ -2,7 +2,6 @@
 SECTIONS
 {
  . = 0x00;
- .vector_table : { *(.vector_table) }
  .startup : { startup.o(.text) }
  .text : { *(.text) }
  .data : { *(.data) }
