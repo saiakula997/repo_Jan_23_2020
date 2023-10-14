@@ -1,7 +1,7 @@
 ENTRY(_MyApp) 
 SECTIONS
 {
- . = 0x00;
+ . = 0x100;
  .startup : { startup.o(.text) }
  .text : { *(.text) }
  .data : { *(.data) }
