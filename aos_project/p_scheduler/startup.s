@@ -6,10 +6,6 @@
 .text
 .align 2
 _MyApp:
-    MOV R2, #0x100
-    MRC p15, 0, R0, c12, c0, 0
-    MCR p15, 0, R2, c12, c0, 0
-    MRC p15, 0, R0, c12, c0, 0
     B   Reset_Handler
     B   NMI_Handler
     B   SVC_Handler
@@ -17,6 +13,10 @@ _MyApp:
     B   panic
 
 Reset_Handler:
+    MOV R2, #0x100
+    MRC p15, 0, R0, c12, c0, 0
+    MCR p15, 0, R2, c12, c0, 0
+    MRC p15, 0, R0, c12, c0, 0
     MOV R0, #0x01
     SVC 0
     MOV R1, #0x01
