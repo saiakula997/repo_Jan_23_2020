@@ -6,6 +6,9 @@
 .text
 .align 2
 _MyApp:
+    MOV R2, #0xABCD
+    MRC p15, 0, R0, c12, c0, 0
+    MCR p15, 0, R1, c12, c0, 0
     B   Reset_Handler
     B   NMI_Handler
     B   SVC_Handler
