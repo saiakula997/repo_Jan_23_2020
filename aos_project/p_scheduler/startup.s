@@ -18,10 +18,8 @@ Reset_Handler:
     MRC p15, 0, R0, c12, c0, 0
     MCR p15, 0, R2, c12, c0, 0
     MRC p15, 0, R0, c12, c0, 0
+    BL creating_pt
     LDR R0, =heap_start
-    SVC 0
-    MOV R1, #0x01
-
     B entry
     B .
     
@@ -92,3 +90,4 @@ write_pte:
     MRC p15, 0, r1, c1, c0, 0 @ Read Control Register configuration data 
     ORR r1, r1, #0x1 @ Bit 0 is the MMU enable
     MCR p15, 0, r1, c1, c0, 0
+    BX LR
