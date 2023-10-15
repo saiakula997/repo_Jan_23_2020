@@ -19,6 +19,7 @@ Reset_Handler:
     MCR p15, 0, R2, c12, c0, 0
     MRC p15, 0, R0, c12, c0, 0
     BL creating_pt
+    MOV R0, #0xABCD
     LDR R0, =heap_start
     B entry
     B .
