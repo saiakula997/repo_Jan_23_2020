@@ -39,7 +39,7 @@ void* malloc(size_t size){
                 for(uint32_t j=0; j<blocks_req; j++){
                     _heap_memory_handler.block[i+j] = block_id;
                     served=1;
-                    print("BLOCK [%u]  Block ID [%u] \n", (i+j+1), block_id);
+                    print(" BLOCK [%u]  Block ID [%u] \n", (i+j+1), block_id);
                 }
                 if(served){
                     ptr = (uint8_t*)(_heap_memory_handler.heap_start + (i*BLOCK_SIZE));

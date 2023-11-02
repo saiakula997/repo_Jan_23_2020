@@ -26,10 +26,6 @@ int entry(uint8_t * heap){
         print("Hello, world! \n");
         delay( TICKS_S(1) );
         
-        uint8_t *p = (uint8_t*)malloc(256);
-        p = (uint8_t*)malloc(100);
-
-
         thread_handler_t thread1;
         memset(&thread1, 0, sizeof(thread_handler_t));
         thread_init(&thread1, 1, "THREAD_1", 8, thread_fun);
@@ -54,7 +50,6 @@ int entry(uint8_t * heap){
 
         // print_tcb_list();
         // print_heap_block_list();
-
         thread_np_scheduler();
 
     return 0;

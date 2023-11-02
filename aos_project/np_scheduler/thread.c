@@ -21,7 +21,7 @@ void thread_init(thread_handler_t *handler, uint32_t id, char *name, uint8_t pri
     handler->priority = priority;
     handler->thread_fun = thread_fun;
     handler->state = READY;
-    print("-> ID: %u  NAME: %s  PRIORITY : %u \n", handler->id, handler->name, handler->priority);
+    print("New: -> ID: %u  NAME: %s  PRIORITY : %u \n", handler->id, handler->name, handler->priority);
 }
 
 
@@ -59,6 +59,7 @@ void thread_stop(thread_handler_t *handler){
     handler->state = STOP;
 }
 void thread_np_scheduler(void){
+    print("---------------- START OF SCHEDULER ------------ \n");
     thread_handler_t *node = _tcb_list_head;
     while (node){
         if(node->state == READY){
@@ -70,5 +71,6 @@ void thread_np_scheduler(void){
         } 
         node = node->next;
     }
-    panic();
+    print("---------------- END OF SCHEDULER ------------ \n");
+    // panic();
 }
